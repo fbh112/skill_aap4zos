@@ -22,7 +22,8 @@
 
   roles:
     - role: query_csi
-      ptf: 'UI70435'
+      #ptf: 'UI70435'
+      ptf: 'UI97484'
       #global_csi: 'IMSTESTL.ZOAU100.CSI'
       global_csi: 'SMPE.PROGPROD.CSI'
       zone: GLOBAL
