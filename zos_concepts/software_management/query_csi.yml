@@ -24,7 +24,7 @@
     - role: query_csi
       ptf: 'UI70435'
       #global_csi: 'IMSTESTL.ZOAU100.CSI'
-      global_csi: 'SMPE.PROGPROD.CSI '
+      global_csi: 'SMPE.PROGPROD.CSI'
       zone: GLOBAL
       list_operands: 'SYSMOD({{ ptf }}) HOLDDATA .'
       # ptf: 'UI70435'
