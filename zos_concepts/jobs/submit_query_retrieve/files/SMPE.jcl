@@ -21,5 +21,5 @@
   SET    BOUNDARY (GLOBAL)                                             
                   .                                                    
   LIST                                                                 
-         GZONE                                                         
+         ALLZONES                                                         
                 .                                                      
