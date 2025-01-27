@@ -21,21 +21,13 @@
   environment: "{{ environment_vars }}"
 
   vars:
-    ptf_name: {{ ptf_name }}
-    global_csi: {{ global_csi | default('SMPE.PROGPROD.CSI') }}
+    ptf_name: "{{ ptf_name }}"
+    global_csi: "{{ global_csi | default('SMPE.PROGPROD.CSI') }}"
 
   roles:
     - role: query_csi
-      #ptf: 'UI97484'
-      #global_csi: 'SMPE.PROGPROD.CSI'
-      ptf:  {{ ptf_name }}
-      global_csi: {{ global_csi }}
+      ptf:  "{{ ptf_name }}"
+      global_csi: "{{ global_csi }}"
       zone: GLOBAL
       list_operands: 'SYSMOD({{ ptf }}) HOLDDATA .'
-      # ptf: 'UI70435'
-      # global_csi: 'IMSTESTL.ZOAU100.CSI'
-      # zone: TGT
-      # list_operands: 'SYSMOD({{ ptf }}) .'
-      # ptf: 'UI74491'
-      # zone: TGT
-      # list_operands: 'SYSMOD({{ ptf }}) .'
+
