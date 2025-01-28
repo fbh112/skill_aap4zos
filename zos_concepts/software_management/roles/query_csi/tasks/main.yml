@@ -30,3 +30,8 @@
           content:
             - 'SET  BOUNDARY({{ zone }}) .'
             - 'LIST {{ list_operands }}'
+  register: result
+
+- name: display result
+  debug:
+    msg: "{{ result.stdout_lines }}"
