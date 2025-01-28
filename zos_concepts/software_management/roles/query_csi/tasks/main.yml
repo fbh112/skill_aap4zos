@@ -34,4 +34,4 @@
 
 - name: display result
   debug:
-    msg: "{{ result.stdout_lines }}"
+    msg: "{{ result }}"
