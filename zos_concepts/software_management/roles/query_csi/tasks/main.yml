@@ -18,9 +18,13 @@
           return_content:
             type: text
       - dd_output:
-          dd_name: "SMPLIST"
+          dd_name: "SMPRPT"
           return_content:
             type: text
+      - dd_output:
+          dd_name: "SMPLIST"
+          return_content:
+            type: text      
       - dd_input:
           dd_name: "SMPCNTL"
           content:
