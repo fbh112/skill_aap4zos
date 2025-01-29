@@ -12,6 +12,6 @@ server_info:
 client_info:
   - '<CLIENT'
   - '  downloadmethod="https"'
-  - '  javahome="/usr/lpp/java/java180/J8.0_64"'
+  - '  javahome="/usr/lpp/java/java8/J8.0_64"'
   - '  classpath="/usr/lpp/smp/classes">'
   - '</CLIENT>'
