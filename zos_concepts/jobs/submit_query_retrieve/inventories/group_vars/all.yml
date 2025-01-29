@@ -7,17 +7,16 @@
 # further configuration.
 ################################################################################
 environment_vars:
-  _BPXK_AUTOCVT: "ON"
-  ZOAU_HOME: "{{ ZOAU }}"
-  PYTHONPATH: "{{ ZOAU }}/lib"
-  LIBPATH: "{{ ZOAU }}/lib:{{ PYZ }}/lib:/lib:/usr/lib:."
-  PATH: "{{ ZOAU }}/bin:{{ PYZ }}/bin:/bin:/var/bin"
-  _CEE_RUNOPTS: "FILETAG(AUTOCVT,AUTOTAG) POSIX(ON)"
-  _TAG_REDIR_ERR: "txt"
-  _TAG_REDIR_IN: "txt"
-  _TAG_REDIR_OUT: "txt"
-  LANG: "C"
-  PYTHONSTDINENCODING: "cp1047"
+    "_BPXK_AUTOCVT": "ON"
+    "ZOAU_HOME": "/usr/lpp/IBM/idz/usr/lpp/IBM/zoautil"
+    "LIBPATH": "/usr/lpp/IBM/idz/usr/lpp/IBM/zoautil/lib:/usr/lpp/IBM/cyp/v3r11/pyz/lib:/lib:/usr/lib:."
+    "PATH": "/usr/lpp/IBM/idz/usr/lpp/IBM/zoautil/bin:/usr/lpp/IBM/cyp/v3r11/pyz/bin:/bin:/var/bin"
+    "_CEE_RUNOPTS": "FILETAG(AUTOCVT,AUTOTAG) POSIX(ON)"
+    "_TAG_REDIR_ERR": "txt"
+    "_TAG_REDIR_IN": "txt"
+    "_TAG_REDIR_OUT": "txt"
+    "LANG": "C"
+    "PYTHONSTDINENCODING": "cp1047"
 
 ################################################################################
 # Description of the properties used in this configuration:
