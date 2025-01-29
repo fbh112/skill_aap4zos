@@ -22,6 +22,6 @@
 
   roles:
     - role: add_certificate
-      user_certificate_dataset: 'IMSTESTL.ZOAU100.SMPE.USER.CERT'
-      ca_certificate_dataset: 'IMSTESTL.ZOAU100.SMPE.CA.CERT'
-      user_cert_pwd: 'smpeansible'
+      user_certificate_dataset: 'IBMUSER.S018S018076.PFX'
+      ca_certificate_dataset: 'IBMUSER.COMMON.ROOTCA'
+      user_cert_pwd: 'm00ppssc'
