@@ -75,37 +75,30 @@
     msg: "{{ apply_check_result }}"
   when: apply_check_result.ret_code.code <= 4
 
-- name: display apply_check result 
-  debug:
-    msg: "{{ dry_run }}"
-  when: 
-    - apply_check_result.ret_code.code > 4
-    - dry_run == false
-
 #APPLY
-# - name: "Perform APPLY for {{ ptf }}"
-#   ibm.ibm_zos_core.zos_mvs_raw:
-#    pgm: GIMSMP
-#    auth: "yes"
-#    dds:
-#      - dd_data_set:
-#          dd_name: "SMPCSI"
-#          data_set_name: "{{ global_csi }}"
-#          disposition: old
+- name: "Perform APPLY for {{ ptf }}"
+  ibm.ibm_zos_core.zos_mvs_raw:
+   pgm: GIMSMP
+   auth: "yes"
+   dds:
+     - dd_data_set:
+         dd_name: "SMPCSI"
+         data_set_name: "{{ global_csi }}"
+         disposition: old
 
-#      - dd_output:
-#          dd_name: "SMPOUT"
-#          return_content:
-#            type: text
+     - dd_output:
+         dd_name: "SMPOUT"
+         return_content:
+           type: text
 
-#      - dd_input:
-#          dd_name: "SMPCNTL"
-#          content: " SET BOUNDARY({{target_zone}}) .
-#            \nAPPLY SELECT(
-#            \n{{ptf}}
-#            \n)
-#            \nBYPASS(HOLDSYS,HOLDERROR)
-#            \nCOMPRESS(ALL) ."
-#   when: 
-#     - apply_check_result.ret_code.code <= 4 
-#     - dry_run == false
+     - dd_input:
+         dd_name: "SMPCNTL"
+         content: " SET BOUNDARY({{target_zone}}) .
+           \nAPPLY SELECT(
+           \n{{ptf}}
+           \n)
+           \nBYPASS(HOLDSYS,HOLDERROR)
+           \nCOMPRESS(ALL) ."
+  when: 
+    - apply_check_result.ret_code.code <= 4 
+    - dry_run == false
