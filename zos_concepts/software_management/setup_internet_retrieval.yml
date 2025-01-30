@@ -23,5 +23,5 @@
   roles:
     - role: add_certificate
       user_certificate_dataset: 'IBMUSER.S018076.PFX'
-      ca_certificate_dataset: 'IBMUSER.COMMON.ROOTCA'
+      ca_certificate_dataset: 'IBMUSER.COMMON.CACERT'
       user_cert_pwd: 'm00ppssc'
