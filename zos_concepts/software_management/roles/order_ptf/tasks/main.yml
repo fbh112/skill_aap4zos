@@ -26,7 +26,7 @@
             - 'SET  BOUNDARY(GLOBAL) .'
             - 'RECEIVE ORDER('
 #            - '           CONTENT(PTFS({{ ptf }}))'
-            - '           CONTENT(HOLDDATA)'
+            - '           CONTENT(PTFS(UI97484))'
             - '           ORDERSERVER(SERVINFO)'
             - '           CLIENT(CLNTINFO)'
             - '              )'
@@ -60,6 +60,7 @@
       - dd_input:
           dd_name: "SMPCNTL"
           content:
-            - 'SET  BOUNDARY(GLOBAL) .'
-            - 'LIST SYSMOD({{ ptf }}) HOLDDATA .'
+            - 'SET  BOUNDARY(GLOBAL) .'   
+            - 'LIST SYSMOD(UI97484) HOLDDATA .'
+#            - 'LIST SYSMOD({{ ptf }}) HOLDDATA .'
   when: order_result.ret_code.code <= 4
