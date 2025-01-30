@@ -27,7 +27,6 @@
 - name: display reject_check result 
   debug:
     msg: "{{ reject_check_result }}"
-  when: reject_check_result.ret_code.code <= 4
 
 # REJECT a SYSMOD
 - name: "REJECT SYSMOD {{ ptf }}"

@@ -73,7 +73,6 @@
 - name: display apply_check result 
   debug:
     msg: "{{ apply_check_result }}"
-  when: apply_check_result.ret_code.code <= 4
 
 #APPLY
 - name: "Perform APPLY for {{ ptf }}"
