@@ -44,16 +44,19 @@
             - RACDCERT ID({{ ansible_user }}) LISTRING(SMPERING)
             - RACDCERT ID({{ ansible_user }}) ADD('{{user_certificate_dataset}}') +
             - WITHLABEL('SMPE Client Certificate') PASSWORD('m00ppssc') TRUST
-            - RACDCERT CERTAUTH ADD('{{ca_certificate_dataset}}') +
-            - WITHLABEL('DigiCert Global Root CA') TRUST
+            - RACDCERT CERTAUTH ADD('{{g2_certificate_dataset}}') +
+            - WITHLABEL('DigiCert Global Root G2') TRUST
+            - RACDCERT CERTAUTH ADD('{{equifax_certificate_dataset}}') +
+            - WITHLABEL('Equifax Secure CA') TRUST
             - RACDCERT ID({{ ansible_user }}) CONNECT(LABEL('SMPE Client Certificate') +
             - RING(SMPERING) USAGE(CERTAUTH) )
             - RACDCERT ID({{ ansible_user }}) +
-            - CONNECT( CERTAUTH LABEL('DigiCert Global Root CA') +
-#            - CONNECT( CERTAUTH LABEL('ROOTCA') +
+            - CONNECT( CERTAUTH LABEL('DigiCert Global Root G2') +
             - RING(SMPERING) USAGE(CERTAUTH) )
-            - RACDCERT CERTAUTH LIST(LABEL('DigiCert Global Root CA'))
-#            - RACDCERT CERTAUTH LIST(LABEL('ROOTCA'))
+            - CONNECT( CERTAUTH LABEL('Equifax Secure CA') +
+            - RING(SMPERING) USAGE(CERTAUTH) )
+            - RACDCERT CERTAUTH LIST(LABEL('DigiCert Global Root G2'))
+            - RACDCERT CERTAUTH LIST(LABEL('Equifax Secure CA'))
             - RACDCERT ID({{ ansible_user }}) LIST(LABEL('SMPE Client Certificate'))
             - SETROPTS CLASSACT(DIGTCERT DIGTRING)
             - SETROPTS RACLIST(FACILITY DIGTCERT DIGTRING) REFRESH

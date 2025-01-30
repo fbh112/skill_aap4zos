@@ -23,5 +23,7 @@
   roles:
     - role: add_certificate
       user_certificate_dataset: 'IBMUSER.S018076.PFX'
-      ca_certificate_dataset: 'IBMUSER.DIGICERT.ROOTCA'
+      ca_certificate_dataset: 'IBMUSER.DIGICERT.ROOTG2'
+      g2_certificate_dataset: 'IBMUSER.DIGICERT.ROOTG2'
+      equifax_certificate_dataset: 'IBMUSER.EQUIFAX.CA'
       user_cert_pwd: 'm00ppssc'
