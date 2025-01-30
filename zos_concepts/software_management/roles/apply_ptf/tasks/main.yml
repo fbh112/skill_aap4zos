@@ -19,7 +19,7 @@
             type: text
       - dd_unix:
           dd_name: "SMPNTS"
-          path: "{{smpe_root}}/smpnts/"
+          path: "{{ smpe_root }}/smpnts/"
 
       - dd_input:
           dd_name: "SMPCNTL"
@@ -70,9 +70,21 @@
   when: receive_result is skipped or receive_result.ret_code.code <=4
   register: apply_check_result
 
-# APPLY
-#- name: "Perform APPLY for {{ ptf }}"
-#  ibm.ibm_zos_core.zos_mvs_raw:
+- name: display apply_check result 
+  debug:
+    msg: "{{ apply_check_result }}"
+  when: apply_check_result.ret_code.code <= 4
+
+- name: display apply_check result 
+  debug:
+    msg: "{{ dry_run }}"
+  when: 
+    - apply_check_result.ret_code.code > 4
+    - dry_run == false
+
+#APPLY
+# - name: "Perform APPLY for {{ ptf }}"
+#   ibm.ibm_zos_core.zos_mvs_raw:
 #    pgm: GIMSMP
 #    auth: "yes"
 #    dds:
@@ -80,12 +92,12 @@
 #          dd_name: "SMPCSI"
 #          data_set_name: "{{ global_csi }}"
 #          disposition: old
-#
+
 #      - dd_output:
 #          dd_name: "SMPOUT"
 #          return_content:
 #            type: text
-#
+
 #      - dd_input:
 #          dd_name: "SMPCNTL"
 #          content: " SET BOUNDARY({{target_zone}}) .
@@ -94,5 +106,6 @@
 #            \n)
 #            \nBYPASS(HOLDSYS,HOLDERROR)
 #            \nCOMPRESS(ALL) ."
-#
-#  when: apply_check_result.ret_code.code <= 4
+#   when: 
+#     - apply_check_result.ret_code.code <= 4 
+#     - dry_run == false

@@ -19,9 +19,12 @@
     - ibm.ibm_zos_core
   gather_facts: false
   environment: "{{ environment_vars }}"
+
   vars:
+    ptf: "{{ ptf_name }}"
+    global_csi: "{{ global_csi | default('SMPE.PROGPROD.CSI') }}"
 
   roles:
     - role: reject_ptf
-      ptf: 'UI97484'
-      global_csi: 'SMPE.PROGPROD.CSI'
+      ptf: "{{ ptf_name }}"
+      global_csi: "{{ global_csi }}"

@@ -24,6 +24,11 @@
                     \nREJECT CHECK S({{ ptf }}) HOLDDATA."
   register: reject_check_result
 
+- name: display reject_check result 
+  debug:
+    msg: "{{ reject_check_result }}"
+  when: reject_check_result.ret_code.code <= 4
+
 # REJECT a SYSMOD
 - name: "REJECT SYSMOD {{ ptf }}"
   ibm.ibm_zos_core.zos_mvs_raw:
