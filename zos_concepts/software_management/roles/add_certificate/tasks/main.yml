@@ -53,6 +53,7 @@
             - RACDCERT ID({{ ansible_user }}) +
             - CONNECT( CERTAUTH LABEL('DigiCert Global Root G2') +
             - RING(SMPERING) USAGE(CERTAUTH) )
+            - RACDCERT ID({{ ansible_user }}) +
             - CONNECT( CERTAUTH LABEL('Equifax Secure CA') +
             - RING(SMPERING) USAGE(CERTAUTH) )
             - RACDCERT CERTAUTH LIST(LABEL('DigiCert Global Root G2'))
