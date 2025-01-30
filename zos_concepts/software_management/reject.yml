@@ -23,3 +23,5 @@
 
   roles:
     - role: reject_ptf
+      ptf: 'UI97484'
+      global_csi: 'SMPE.PROGPROD.CSI'
