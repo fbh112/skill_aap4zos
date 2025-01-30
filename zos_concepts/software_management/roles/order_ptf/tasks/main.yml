@@ -25,8 +25,7 @@
           content:
             - 'SET  BOUNDARY(GLOBAL) .'
             - 'RECEIVE ORDER('
-#            - '           CONTENT(PTFS({{ ptf }}))'
-            - '           CONTENT(PTFS(UI97484))'
+            - '           CONTENT(PTFS({{ ptf }}))'
             - '           ORDERSERVER(SERVINFO)'
             - '           CLIENT(CLNTINFO)'
             - '              )'
@@ -39,6 +38,10 @@
           content: "{{ client_info }}"
   register: order_result
 
+- name: display order result
+  debug:
+    msg: "{{ order_result }}"
+
 - name: "LIST HOLDDATA"
   ibm.ibm_zos_core.zos_mvs_raw:
     pgm: GIMSMP
@@ -48,19 +51,23 @@
           dd_name: "SMPCSI"
           data_set_name: "{{ global_csi }}"
           disposition: old
-
       - dd_output:
-          dd_name: "SMPOUT"
+          dd_name: "SMPLIST"
           return_content:
             type: text
       - dd_output:
-          dd_name: "SMPLIST"
+          dd_name: "SMPOUT"
           return_content:
             type: text
       - dd_input:
           dd_name: "SMPCNTL"
           content:
             - 'SET  BOUNDARY(GLOBAL) .'   
-            - 'LIST SYSMOD(UI97484) HOLDDATA .'
-#            - 'LIST SYSMOD({{ ptf }}) HOLDDATA .'
+            - 'LIST SYSMOD({{ ptf }}) HOLDDATA .'
+    register: list_result    
+  when: order_result.ret_code.code <= 4
+
+- name: display list result
+  debug:
+    msg: "{{ list_result }}"
   when: order_result.ret_code.code <= 4
