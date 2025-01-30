@@ -44,12 +44,12 @@
             - RACDCERT ID({{ ansible_user }}) LISTRING(SMPERING)
             - RACDCERT ID({{ ansible_user }}) ADD('{{user_certificate_dataset}}') +
             - WITHLABEL('SMPE Client Certificate') PASSWORD('m00ppssc') TRUST
-            - RACDCERT CERTAUTH ADD('{{ ca_certificate_dataset }}') +
+            - RACDCERT CERTAUTH ADD('{{ca_certificate_dataset}}') +
             - WITHLABEL('DigiCert Global Root CA') TRUST
             - RACDCERT ID({{ ansible_user }}) CONNECT(LABEL('SMPE Client Certificate') +
             - RING(SMPERING) USAGE(CERTAUTH) )
             - RACDCERT ID({{ ansible_user }}) +
-            - CONNECT( CERTAUTH LABEL('DigiCert Global Root CA')') +
+            - CONNECT( CERTAUTH LABEL('DigiCert Global Root CA') +
 #            - CONNECT( CERTAUTH LABEL('ROOTCA') +
             - RING(SMPERING) USAGE(CERTAUTH) )
             - RACDCERT CERTAUTH LIST(LABEL('DigiCert Global Root CA'))
