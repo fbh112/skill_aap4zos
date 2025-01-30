@@ -64,7 +64,7 @@
           content:
             - 'SET  BOUNDARY(GLOBAL) .'   
             - 'LIST SYSMOD({{ ptf }}) HOLDDATA .'
-    register: list_result    
+  register: list_result    
   when: order_result.ret_code.code <= 4
 
 - name: display list result
