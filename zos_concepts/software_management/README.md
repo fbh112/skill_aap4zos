@@ -1,4 +1,4 @@
-# Apply ptf using Using Ansible
+# Apply PTF using Using Ansible on Z
 
 This project provides sample playbooks and roles which can be used to perform SMPE operations.
 
@@ -47,9 +47,7 @@ This playbook requires:
 - Update the playbook specific variables found in each playbook and review the
   role README files.
 
-##Run the playbook
-
-
+## Run the playbook
 
 This project has included a `site.yml` playbook that serves as the primary playbook
 that provides additional prerequisite checks.
