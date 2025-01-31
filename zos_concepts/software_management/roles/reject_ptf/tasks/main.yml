@@ -47,5 +47,11 @@
           dd_name: "SMPCNTL"
           content: " SET  BOUNDARY({{zone}}) .
                     \nREJECT S({{ ptf }}) HOLDDATA."
+  register: reject_result
   tags: reject sysmod
   when: reject_check_result.ret_code.code <= 4
+
+
+- name: display reject result 
+  debug:
+    msg: "{{ reject_result }}"
