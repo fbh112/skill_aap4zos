@@ -5,5 +5,5 @@
 000005 //SYSIN    DD  DUMMY                                                    
 000006 //SYSUT2   DD  SYSOUT=*                                                 
 000007 //SYSUT1   DD  *                                                        
-000008   HELLO WORLD SEB                                                             
+000008   HELLO WORLD Z-OPENDAY                                         
 000009 /*                                                                      
