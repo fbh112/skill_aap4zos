@@ -7,3 +7,8 @@
     - name: Ping z/OS server using zos_ping module via SSH.
       tags: ping, zos_ping
       ibm.ibm_zos_core.zos_ping:
+      register: ping_pong_result
+
+    - name: Pring ping_pong_result
+      debug:
+        msg: "{{ ping_pong_result }}"
